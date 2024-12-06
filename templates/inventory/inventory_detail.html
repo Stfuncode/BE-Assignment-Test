@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inventory Detail</title>
+        {% load static %}
+    </head>
+    <body>
+        <h1>Inventory Detail</h1>
+        <button onclick="window.history.back()">Back</button>
+        <div style="background-color: lightgray; width: 300px; aspect-ratio: 1/1; border-radius: 50px;">
+            <img style="width: 100%;" src="{% static 'cardboard.png' %}" alt="thumbnail">
+        </div>
+        <p><strong>Name:</strong> {{ inventory.name }}</p>
+        <p><strong>Description:</strong> {{ inventory.description }}</p>
+        <p><strong>Note:</strong> {{ inventory.note }}</p>
+        <p><strong>Stock:</strong> {{ inventory.stock }}</p>
+        <p><strong>Supplier:</strong> {{ inventory.supplier.name }}</p>
+        <p>
+            <strong>Availability:</strong>
+            {% if inventory.availability %}
+                available
+            {% else %}
+                unavailable
+            {% endif %}
+        </p>
+    </body>
+</html>
